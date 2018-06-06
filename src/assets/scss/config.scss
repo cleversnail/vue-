@@ -1,0 +1,83 @@
+// 颜色变量
+$main-color-blue: #51A6DD;
+$color-white: #fff;
+$color-black: #000;
+$color-orange: #E6823B;
+$color-bg: #EFEFEF;
+$color-gray: #676767;
+$color-green: #6ADB43;
+$color-pink: #E8395F;
+$color-blue: #498DC8;
+$color-pippin: #FAE2D3;
+$color-red: #fa6852;
+$border-gray: 1px solid #AAAAAA;
+/**
+ * px rem转换函数
+ */
+@function Rem($px) {
+   @return $px/100*1rem;
+}
+@mixin circle($px) {
+  width: $px;
+  height: $px;
+  border-radius: 50%;
+}
+//单行文本省略
+@mixin ellipsis-single {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//多行文本省略
+@mixin ellipsis-multi($length) {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $length;
+  display: -webkit-box;
+  overflow: hidden;
+}
+// triangle
+@mixin triangle($direction, $size, $borderColor ) {
+  content: "";
+  height: 0;
+  width: 0;
+  @if $direction == top {
+    border-bottom: $size solid $borderColor;
+    border-left: $size dashed transparent;
+    border-right: $size dashed transparent;
+  }
+  @else if $direction == right {
+    border-left: $size solid $borderColor;
+    border-top: $size dashed transparent;
+    border-bottom: $size dashed transparent;
+  }
+  @else if $direction == bottom {
+    border-top: $size solid $borderColor;
+    border-left: $size dashed transparent;
+    border-right: $size dashed transparent;
+  }
+  @else if $direction == left {
+    border-right: $size solid $borderColor;
+    border-top: $size dashed transparent;
+    border-bottom: $size dashed transparent;
+  }
+}
+
+%btn {
+  background-color: rgba(38,70,124,.7);
+  text-shadow: 0 2px 6.96px rgba(0, 0, 0, 0.66);
+  font-weight: bold;
+  font-size: 16px;
+  height: Rem(100);
+  line-height: Rem(100);
+  border-radius: 4px;
+  border: 1px solid #0373ff;
+}
+
+%tx {
+  color: rgba(200,200,200,.7);
+}
+%fullpage {
+  height: 100vh;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
